@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background: #f4f4f4;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input, textarea, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background: #25D366;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1ebc59;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Submit Your Job Request</h2>
+    <form id="requestForm">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="text" id="whatsapp" placeholder="WhatsApp Number" required />
+      <input type="text" id="instagram" placeholder="Instagram Handle" />
+      <textarea id="job" placeholder="Nature of Job (max 50 words)" maxlength="250" required></textarea>
+      <input type="text" id="country" placeholder="Country" required />
+      <input type="text" id="state" placeholder="State" required />
+      <button type="submit">Send to WhatsApp</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("requestForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const whatsapp = document.getElementById("whatsapp").value;
+      const instagram = document.getElementById("instagram").value;
+      const job = document.getElementById("job").value;
+      const country = document.getElementById("country").value;
+      const state = document.getElementById("state").value;
+
+      const message = `New Request:%0A
+Name: ${name}%0A
+Email: ${email}%0A
+WhatsApp: ${whatsapp}%0A
+Instagram: ${instagram}%0A
+Nature of Job: ${job}%0A
+Country: ${country}%0A
+State: ${state}`;
+
+      const whatsappURL = `https://wa.me/2349131597494?text=${encodeURIComponent(message)}`;
+      window.open(whatsappURL, "_blank");
+    });
+  </script>
+
+</body>
+</html>
