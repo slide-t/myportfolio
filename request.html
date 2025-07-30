@@ -3,184 +3,186 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Submit a Request</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      padding: 20px;
-    }
-    form {
-      max-width: 500px;
-      background: white;
-      padding: 20px;
-      margin: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    input, textarea, select {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button {
-      width: 48%;
-      padding: 10px;
-      margin: 10px 1%;
-      border: none;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-    }
-    .whatsapp-btn { background: #25d366; }
-    .email-btn { background: #333; }
-  </style>
-</head>
-<body>
-
-  <h2 style="text-align:center;">Submit Your Job Request</h2>
-  <form id="requestForm">
-    <input type="text" id="name" placeholder="Your Name" required />
-    <input type="email" id="email" placeholder="Your Email" required />
-    <input type="tel" id="whatsapp" placeholder="WhatsApp Number" required />
-    <input type="text" id="instagram" placeholder="Instagram Handle" />
-    <textarea id="job" placeholder="Describe the Nature of Job (Max 50 words)" maxlength="300" required></textarea>
-    <input type="text" id="country" placeholder="Country" required />
-    <input type="text" id="state" placeholder="State" required />
-    
-    <div style="display:flex; justify-content: space-between;">
-      <button type="button" class="whatsapp-btn" onclick="sendToWhatsApp()">Send via WhatsApp</button>
-      <button type="button" class="email-btn" onclick="sendToEmail()">Send via Email</button>
-  </div>
-  
-  </form>
-
-  <script>
-    function collectData() {
-      return {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        whatsapp: document.getElementById("whatsapp").value,
-        instagram: document.getElementById("instagram").value,
-        job: document.getElementById("job").value,
-        country: document.getElementById("country").value,
-        state: document.getElementById("state").value,
-      };
-    }
-
-    function sendToWhatsApp() {
-      const data = collectData();
-      const msg = `New Job Request:%0A%0AName: ${data.name}%0AEmail: ${data.email}%0AWhatsApp: ${data.whatsapp}%0AInstagram: ${data.instagram}%0AJob Description: ${data.job}%0ACountry: ${data.country}%0AState: ${data.state}`;
-      const phone = "2349131597494";
-      const url = `https://wa.me/${phone}?text=${msg}`;
-      window.open(url, "_blank");
-    }
-
-    function sendToEmail() {
-      const data = collectData();
-      const subject = encodeURIComponent("Job Request Submission");
-      const body = `Name: ${data.name}%0AEmail: ${data.email}%0AWhatsApp: ${data.whatsapp}%0AInstagram: ${data.instagram}%0AJob Description: ${data.job}%0ACountry: ${data.country}%0AState: ${data.state}`;
-      const mailto = `mailto: alizee1030@gmail.com?subject=${subject}&body=${body}`;
-      window.location.href = mailto;
-    }
-  </script>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Request Form</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      padding: 2rem;
-      background: #f4f4f4;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
     .form-container {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 8px;
+      background-color: #fff;
+      padding: 30px;
+      width: 90%;
       max-width: 500px;
-      margin: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
 
-    input, textarea, select, button {
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #001219;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    input, textarea, select {
       width: 100%;
       padding: 10px;
-      margin: 10px 0;
+      border-radius: 6px;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      font-size: 1rem;
     }
 
-    button {
-      background: #25D366;
-      color: #fff;
-      font-weight: bold;
+    textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+
+    .form-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .form-buttons button {
+      padding: 12px;
       border: none;
+      font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
+      border-radius: 6px;
+      transition: 0.3s ease;
     }
 
-    button:hover {
-      background: #1ebc59;
+    .whatsapp-btn {
+      background-color: #25d366;
+      color: white;
+    }
+
+    .email-btn {
+      background-color: #001219;
+      color: white;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #1ebe58;
+    }
+
+    .email-btn:hover {
+      background-color: #02252e;
     }
   </style>
 </head>
 <body>
 
   <div class="form-container">
-    <h2>Submit Your Job Request</h2>
+    <h2>Request a Job</h2>
     <form id="requestForm">
-      <input type="text" id="name" placeholder="Full Name" required />
-      <input type="email" id="email" placeholder="Email" required />
-      <input type="text" id="whatsapp" placeholder="WhatsApp Number" required />
-      <input type="text" id="instagram" placeholder="Instagram Handle" />
-      <textarea id="job" placeholder="Nature of Job (max 50 words)" maxlength="250" required></textarea>
-      <input type="text" id="country" placeholder="Country" required />
-      <input type="text" id="state" placeholder="State" required />
-      <button type="submit">Send to WhatsApp</button>
+      <div class="form-group">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="whatsapp">WhatsApp Contact:</label>
+        <input type="text" id="whatsapp" required />
+      </div>
+
+      <div class="form-group">
+        <label for="instagram">Instagram Handle:</label>
+        <input type="text" id="instagram" />
+      </div>
+
+      <div class="form-group">
+        <label for="jobDesc">Nature of Job (50 words):</label>
+        <textarea id="jobDesc" maxlength="300" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country:</label>
+        <select id="country" required>
+          <option value="">-- Select Country --</option>
+          <option value="Nigeria">Nigeria</option>
+          <option value="Ghana">Ghana</option>
+          <option value="Kenya">Kenya</option>
+          <option value="South Africa">South Africa</option>
+          <option value="USA">USA</option>
+          <option value="UK">UK</option>
+          <option value="Other">Canada</option>
+          <option value="Other">Other</option>
+          
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="state">State/Province:</label>
+        <input type="text" id="state" required />
+      </div>
+
+      <div class="form-buttons">
+        <button type="button" class="whatsapp-btn" onclick="sendWhatsApp()">Send via WhatsApp</button>
+        <button type="button" class="email-btn" onclick="sendEmail()">Send via Email</button>
+      </div>
     </form>
   </div>
 
   <script>
-    document.getElementById("requestForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
+    function sendWhatsApp() {
+      const name = document.getElementById("fullName").value;
       const email = document.getElementById("email").value;
       const whatsapp = document.getElementById("whatsapp").value;
       const instagram = document.getElementById("instagram").value;
-      const job = document.getElementById("job").value;
+      const jobDesc = document.getElementById("jobDesc").value;
       const country = document.getElementById("country").value;
       const state = document.getElementById("state").value;
 
-      const message = `New Request:%0A
-Name: ${name}%0A
-Email: ${email}%0A
-WhatsApp: ${whatsapp}%0A
-Instagram: ${instagram}%0A
-Nature of Job: ${job}%0A
-Country: ${country}%0A
-State: ${state}`;
+      const message = `Request Details:%0AName: ${name}%0AEmail: ${email}%0AWhatsApp: ${whatsapp}%0AInstagram: ${instagram}%0ANature of Job: ${jobDesc}%0ACountry: ${country}%0AState: ${state}`;
 
-      const whatsappURL = `https://wa.me/2349131597494?text=${encodeURIComponent(message)}`;
-      window.open(whatsappURL, "_blank");
-    });
+      const phone = "2349131597494";
+      const url = `https://wa.me/${phone}?text=${message}`;
+      window.open(url, "_blank");
+    }
+
+    function sendEmail() {
+      const name = document.getElementById("fullName").value;
+      const email = document.getElementById("email").value;
+      const whatsapp = document.getElementById("whatsapp").value;
+      const instagram = document.getElementById("instagram").value;
+      const jobDesc = document.getElementById("jobDesc").value;
+      const country = document.getElementById("country").value;
+      const state = document.getElementById("state").value;
+
+      const subject = "New Job Request Submission";
+      const body = `Request Details:%0D%0AName: ${name}%0D%0AEmail: ${email}%0D%0AWhatsApp: ${whatsapp}%0D%0AInstagram: ${instagram}%0D%0ANature of Job: ${jobDesc}%0D%0ACountry: ${country}%0D%0AState: ${state}`;
+      window.location.href = `mailto: alizee1030@gmail.com?subject=${subject}&body=${body}`;
+    }
   </script>
 
 </body>
