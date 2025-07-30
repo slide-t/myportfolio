@@ -21,7 +21,7 @@
     input, textarea, select {
       width: 100%;
       padding: 10px;
-      margin: 10px ;
+      margin: 10px 15px;
       border-radius: 5px;
       border: 1px solid #ccc;
     }
@@ -51,9 +51,13 @@
     <input type="text" id="state" placeholder="State" required />
     
     <div style="display:flex; justify-content: space-between;">
+    <div>
       <button type="button" class="whatsapp-btn" onclick="sendToWhatsApp()">Send via WhatsApp</button>
-      <button type="button" class="email-btn" onclick="sendToEmail()">Send via Email</button>
     </div>
+  <div>
+      <button type="button" class="email-btn" onclick="sendToEmail()">Send via Email</button>
+  </div>
+  </div>
   </form>
 
   <script>
