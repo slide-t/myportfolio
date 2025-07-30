@@ -1,4 +1,4 @@
-const CACHE_NAME = "azeez-portfolio-cache-v1.5.5";
+const CACHE_NAME = "azeez-portfolio-cache-v1.5.6";
 const urlsToCache = [
   "/",
   "/index.html",
