@@ -127,6 +127,15 @@
 
       <div class="form-group">
         <label for="country">Country:</label>
+        
+        <select id="countrySelect">
+  <option value="">Select Country</option>
+</select>
+
+<select id="stateSelect">
+  <option value="">Select State/Province</option>
+</select>
+        <!--
         <select id="country" required>
           <option value="">-- Select Country --</option>
           <option value="Nigeria">Nigeria</option>
@@ -136,9 +145,9 @@
           <option value="USA">USA</option>
           <option value="UK">UK</option>
           <option value="Other">Canada</option>
-          <option value="Other">Other</option>
-          
+          <option value="Other">Other</option>  
         </select>
+        -->
       </div>
 
       <div class="form-group">
@@ -184,6 +193,45 @@
       window.location.href = `mailto: alizee1030@gmail.com?subject=${subject}&body=${body}`;
     }
   </script>
+<script>
+const locationData = {
+  "Canada": ["Alberta", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland and Labrador", "Nova Scotia", "Ontario", "Prince Edward Island", "Quebec", "Saskatchewan"],
+  "United States": ["California", "Texas", "New York", "Florida", "Illinois", "Pennsylvania"],
+  "Nigeria": ["Lagos", "Abuja (FCT)", "Ogun", "Kano", "Kaduna", "Enugu" "Benue", "Oyo", "Delta", "Anambra", "Sokoto", "Jigawa", "Rivers", "Cross-River", "Plateau", "Edo", "Ekiti"],
+  "India": ["Maharashtra", "Tamil Nadu", "Karnataka", "West Bengal", "Delhi", "Gujarat"]
+};
 
+const countrySelect = document.getElementById('countrySelect');
+const stateSelect = document.getElementById('stateSelect');
+
+// Populate country options
+Object.keys(locationData).forEach(country => {
+  const option = document.createElement('option');
+  option.value = country;
+  option.textContent = country;
+  countrySelect.appendChild(option);
+});
+
+// Handle country change
+countrySelect.addEventListener('change', () => {
+  const selectedCountry = countrySelect.value;
+  const states = locationData[selectedCountry] || [];
+
+  // Clear previous states
+  stateSelect.innerHTML = '<option value="">Select State/Province</option>';
+
+  // Populate states
+  states.forEach(state => {
+    const option = document.createElement('option');
+    option.value = state;
+    option.textContent = state;
+    stateSelect.appendChild(option);
+  });
+});
+</script>
+
+
+
+  
 </body>
 </html>
