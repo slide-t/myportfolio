@@ -139,7 +139,28 @@
   opacity: 1;
   visibility: visible;
 }
-      
+
+    /* dark mode css*/
+    .dark-mode {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+    }
+
+    /* Toggle Button */
+    .dark-mode-toggle {
+      position: fixed;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      background-color: #333;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+      z-index: 1000;
+      font-size: 14px;
+      user-select: none;
+    }
   </style>
 </head>
 <body>
@@ -327,7 +348,78 @@ if ('serviceWorker' in navigator) {
   });
 </script>
 
+<div class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Toggle</div>
 
+  <h1>Hello, welcome to my portfolio</h1>
+  <p>This is a sample text that changes color with theme.</p>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
   
 </body>
 </html>
+
+
+<!--
+/*dark mode*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dark Mode Toggle</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+    }
+
+    /* Toggle Button */
+    .dark-mode-toggle {
+      position: fixed;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      background-color: #333;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+      z-index: 1000;
+      font-size: 14px;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Toggle</div>
+
+  <h1>Hello, welcome to my portfolio</h1>
+  <p>This is a sample text that changes color with theme.</p>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>
+
+
