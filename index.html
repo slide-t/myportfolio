@@ -8,10 +8,158 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Alimi Azeez Olajide – Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
-
+ <link rel="stylesheet" href="style.css" />
   <!-- AOS Animation CSS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
+ <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --card-bg: #ffffff;
+      --section-title-color: #001f3f;
+      --accent-color: #0074D9;
+      --link-hover: #005fa3;
+      --header-bg: #001f3f;
+      --header-color: #ffffff;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark-mode {
+      --bg-color: #111;
+      --text-color: #f0f0f0;
+      --card-bg: #1e1e1e;
+      --section-title-color: #66ccff;
+      --accent-color: #3399ff;
+      --link-hover: #0074D9;
+      --header-bg: #000;
+      --header-color: #fff;
+      --shadow-color: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: Roboto, sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    header {
+      background-color: var(--header-bg);
+      color: var(--header-color);
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-family: Roboto;
+      font-size: 14px;
+      text-align: justify;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--section-title-color);
+      border-left: 5px solid var(--accent-color);
+      padding-left: 10px;
+    }
+
+    .about {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px var(--shadow-color);
+      margin-bottom: 2rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px var(--shadow-color);
+      transition: transform 0.3s;
+      text-align: center;
+    }
+
+    .card img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: contain;
+      margin-bottom: 1rem;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--section-title-color);
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .card a {
+      text-decoration: none;
+      background: var(--accent-color);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .card a:hover {
+      background: var(--link-hover);
+    }
+
+    /* Dark mode toggle button */
+    .dark-mode-toggle {
+      position: fixed;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      background: #222;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 14px;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      transition: background 0.3s;
+    }
+
+    .dark-mode-toggle:hover {
+      background: #444;
+    }
+  </style>
+  
   <style>
     * {
       margin: 0;
@@ -19,6 +167,7 @@
       box-sizing: border-box;
       font-family: 'Roboto', sans-serif;
     }
+    /*
 :root {
       --bg-color: #ffffff;
       --text-color: #000000;
@@ -33,11 +182,11 @@
     }
 
     
-   /* body {
+    body {
       background: #f5f7fa;
       color: #333;
       line-height: 1.6;
-    }*/
+    }
     header {
       background-color: #001f3f;
       color: #fff;
@@ -117,7 +266,7 @@
     }
     .card a:hover {
       background: #005fa3;
-    }
+    }*/
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -154,13 +303,13 @@
   visibility: visible;
 }
 
-    /* dark mode css*/
+    /* dark mode css*
     .dark-mode {
       --bg-color: #121212;
       --text-color: #ffffff;
     }
 
-    /* Toggle Button */
+    /* Toggle Button *
     .dark-mode-toggle {
       position: fixed;
       top: 50%;
@@ -174,7 +323,7 @@
       z-index: 1000;
       font-size: 14px;
       user-select: none;
-    }
+    }*/
   </style>
 </head>
 <body>
@@ -362,14 +511,26 @@ if ('serviceWorker' in navigator) {
   });
 </script>
 
-<div class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Toggle</div>
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      const toggleBtn = document.querySelector('.dark-mode-toggle');
+      if (document.body.classList.contains('dark-mode')) {
+        toggleBtn.innerHTML = '☀️ Light Mode';
+      } else {
+        toggleBtn.innerHTML = '🌙 Dark Mode';
+      }
+    }
+  </script>
 
-  
+  <div class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Toggle</div>
+  <!--
+  <div class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</div>
   <script>
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
     }
-  </script>
+  </script>-->
   
 </body>
 </html>
