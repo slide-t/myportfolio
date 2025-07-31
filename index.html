@@ -208,7 +208,23 @@
   opacity: 1;
   visibility: visible;
 }
+.resume-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  background-color: transparent;
+  text-decoration: none;
+  border-radius: 8px;
+  margin: 20px auto;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
 
+.resume-btn:hover {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  border-color: var(--accent-color);
+}
   </style>
   
   <style>
@@ -476,7 +492,20 @@
 
   </div>
 </section>
-<a href="resume.html" download style="display:inline-block;padding:8px 24px;border:2px solid #b3b3cc;color:#000;text-decoration:none;border-radius:8px; margin:20px auto; transition:0.3s;">
+  <!--<a href="resume.html" download style="
+  display: inline-block;
+  padding: 10px 24px;
+  border: 2px solid #00bcd4;
+  color: #00bcd4;
+  background-color: transparent;
+  text-decoration: none;
+  border-radius: 8px;
+  margin: 20px auto;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+">
+  Download My Resume
+  </a>-->
+<a href="resume.html">
   Download My Resume
 </a>
   
