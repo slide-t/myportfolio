@@ -364,9 +364,7 @@ if ('serviceWorker' in navigator) {
 
 <div class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Toggle</div>
 
-  <h1>Hello, welcome to my portfolio</h1>
-  <p>This is a sample text that changes color with theme.</p>
-
+  
   <script>
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
@@ -379,6 +377,151 @@ if ('serviceWorker' in navigator) {
 
 <!--
 /*dark mode*/
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio with Dark Mode</title>
+
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --card-bg: #ffffff;
+      --section-title-color: #001f3f;
+      --accent-color: #0074D9;
+      --link-hover: #005fa3;
+      --header-bg: #001f3f;
+      --header-color: #ffffff;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark-mode {
+      --bg-color: #111;
+      --text-color: #f0f0f0;
+      --card-bg: #1e1e1e;
+      --section-title-color: #66ccff;
+      --accent-color: #3399ff;
+      --link-hover: #0074D9;
+      --header-bg: #000;
+      --header-color: #fff;
+      --shadow-color: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: Roboto, sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    header {
+      background-color: var(--header-bg);
+      color: var(--header-color);
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-family: Roboto;
+      font-size: 14px;
+      text-align: justify;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--section-title-color);
+      border-left: 5px solid var(--accent-color);
+      padding-left: 10px;
+    }
+
+    .about {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px var(--shadow-color);
+      margin-bottom: 2rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+
+</head>
+<body>
+  <div class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</div>
+
+  <header>
+    <h1>My Portfolio</h1>
+    <p>Creative Developer & Educator</p>
+  </header>
+
+  <div class="container">
+    <section class="about">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        I am passionate about coding and teaching kids and beginners how to use technology.
+        Getting a job will help support my community and empower less privileged pupils and students to learn coding.
+      </p>
+    </section>
+
+    <section class="projects">
+      <div class="card">
+        <img src="https://via.placeholder.com/60" alt="Project">
+        <h3>Project One</h3>
+        <p>This is a simple description of my first project.</p>
+        <a href="#">View</a>
+      </div>
+
+      <div class="card">
+        <img src="https://via.placeholder.com/60" alt="Project">
+        <h3>Project Two</h3>
+        <p>This is another exciting project I worked on.</p>
+        <a href="#">Explore</a>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      const toggleBtn = document.querySelector('.dark-mode-toggle');
+      if (document.body.classList.contains('dark-mode')) {
+        toggleBtn.innerHTML = '☀️ Light Mode';
+      } else {
+        toggleBtn.innerHTML = '🌙 Dark Mode';
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
